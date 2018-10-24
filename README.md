@@ -12,9 +12,11 @@
  
  
 Используемые технологии:
-React / Redux /Redux Persist/ Webpack/Eslint/Jest/Enzyme.
-
-Содержит Eslint и тесты.
-
-
-
+React/Redux/Redux Persist/Webpack/Eslint/Jest/Enzyme/SASS.
+ - React
+ - Redux
+ - Redux Persist
+ - Webpack
+ - Eslint
+ - Enzyme
+ - SASS
