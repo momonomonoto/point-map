@@ -1,0 +1,40 @@
+{
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+    "jsx-a11y"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "global-require": [0],
+    "import/no-unresolved": [0],
+    "no-return-assign": [0],
+    "comma-dangle": [2, "never"],
+    "quotes": [1, "single"],
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "no-constant-condition": [0],
+    "new-cap": [2, {
+      "newIsCap": true,
+      "capIsNew": false
+    }],
+    "react/jsx-no-bind": [1, {
+      "allowBind": true
+    }],
+    "max-len": [1, 121, 2],
+    "camelcase": [0],
+    "no-cond-assign": [0],
+    "no-underscore-dangle": [0],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/forbid-prop-types": [1, { "forbid": ["any", "array", "object"] }],
+    "no-shadow":0,
+    "no-unused-vars":["error", {  "varsIgnorePattern": "[style]"}],
+    "quote-props": [0],
+    "arrow-body-style": [0, "as-needed"],
+    "no-case-declarations": [0],
+    "no-alert": [0],
+    "no-confusing-arrow": [0],
+    "arrow-parens":[0],
+    "no-param-reassign": [0],
+    "linebreak-style": ["error", "windows"]
+  }
+}
