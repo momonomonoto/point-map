@@ -12,7 +12,6 @@
  
  
 Используемые технологии:
-React/Redux/Redux Persist/Webpack/Eslint/Jest/Enzyme/SASS.
  - React
  - Redux
  - Redux Persist
@@ -20,3 +19,5 @@ React/Redux/Redux Persist/Webpack/Eslint/Jest/Enzyme/SASS.
  - Eslint
  - Enzyme
  - SASS
+ - Prettier
+
