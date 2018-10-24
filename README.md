@@ -7,9 +7,24 @@
 ```bash
 git clone git@github.com:momonomonoto/point-map.git
 npm install
-npm start
 ```
 
+### Запуск
+
+```bash
+npm start
+localhost:8080
+```
+### Тесты
+
+```bash
+npm run test
+```
+### Prettier
+
+```bash
+npm run prettier
+```
 ### Основные возможности:
  - Внесение геоточек на карту.
  - Внесение геоточек в общий список.
