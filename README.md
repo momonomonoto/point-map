@@ -44,5 +44,7 @@ npm run prettier
  - SASS
  - Prettier
  
+  Архитектура организации компонентов Redux спроектирована с помощью Ducks.
+  https://github.com/erikras/ducks-modular-redux
 
 
