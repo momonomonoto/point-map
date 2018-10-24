@@ -15,7 +15,7 @@
 React / Redux /Redux Persist/ Webpack
 Eslint/Jest/Enzyme.
 
-Содержит Eslint и тесты
+Содержит Eslint и тесты.
 
 
 
