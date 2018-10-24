@@ -7,6 +7,7 @@
 ```bash
 git clone git@github.com:momonomonoto/point-map.git
 npm install
+npm start
 ```
 
 ### Основные возможности:
