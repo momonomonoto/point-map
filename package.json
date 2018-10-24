@@ -7,7 +7,7 @@
     "build": "npm run clear && webpack --env.prod",
     "start": "node_modules/.bin/webpack-dev-server --env.dev --open",
     "test": "node_modules/.bin/jest --env=jsdom",
-    "clear": "rimraf public",
+    "clear": "rimraf docs",
     "precommit": "lint-staged",
     "prettier": "prettier --write \"src/**/*.js\""
   },

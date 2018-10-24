@@ -12,7 +12,7 @@ module.exports = (env) => {
     },
     output: {
       filename: '[name].[chunkhash].js',
-      path: path.resolve(__dirname, 'public')
+      path: path.resolve(__dirname, 'docs')
     },
     watch: true,
     devtool: env && env.dev ? 'eval' : 'source-map',
