@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-.itemClass {
+.valueElementContainer {
   padding: 8px;
   cursor: pointer;
   @extend .panel;
@@ -29,10 +29,20 @@
   display: flex;
   margin: 0 10px 10px 0;
 }
-
+.itemClass {
+  display: flex;
+  justify-content: space-between;
+}
 .containerList {
   overflow-y: scroll;
   height: 80vh;
   min-width: 280px;
   padding: 4px 4px 0 4px;
+}
+
+.baseLine {
+  border: none;
+  background:none;
+  outline:none;
+  cursor:pointer;
 }

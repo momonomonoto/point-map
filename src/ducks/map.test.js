@@ -1,7 +1,7 @@
-import reducer from "./map";
-import {
+import reducer, {
   ADD_POINT,
   DELETE_POINT,
+  SET_POINT_LIST,
   UPDATE_COORDINATE_POINT,
   UPDATE_MAP_CENTER,
   SET_MAP_CENTER
@@ -16,6 +16,7 @@ const initialState = {
 const stateWithPoint = {
   pointList: [{ id: "id", value: "value", coordinate: [0, 0] }]
 };
+
 const newPointCoordinate = [0, 0];
 const pointWithCoordinate = {
   id: "id",
@@ -70,4 +71,16 @@ test("Set map center", () => {
     actionSetNewMapCenter
   );
   expect(stateWithChangedMapCenter.mapCenter).toEqual(newPointCoordinate);
+});
+
+test("Set pointList", () => {
+  const actionSetNewPointList = {
+    type: SET_POINT_LIST,
+    payload: stateWithPoint
+  };
+  const stateWithChangedMapCenter = reducer(
+    initialState,
+    actionSetNewPointList
+  );
+  expect(stateWithChangedMapCenter.pointList).toEqual(stateWithPoint);
 });

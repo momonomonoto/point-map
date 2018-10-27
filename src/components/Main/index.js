@@ -9,6 +9,7 @@ import {
   deletePoint,
   updatePoint,
   setMapCenter,
+  setPointList,
   updateMapCenterByPointCoordinate
 } from "../../ducks/map";
 import style from "./style.scss";
@@ -21,6 +22,7 @@ export function Main({
   updatePoint,
   updateMapCenterByPointCoordinate,
   mapCenter,
+  setPointList,
   setMapCenter
 }) {
   return (
@@ -33,6 +35,7 @@ export function Main({
           addPoint={addPoint}
           className={style.pointListContainer}
           deletePoint={deletePoint}
+          setPointList={setPointList}
         />
         <Map
           className={style.map}
@@ -53,6 +56,7 @@ Main.propTypes = {
   updateMapCenterByPointCoordinate: PropTypes.func.isRequired,
   deletePoint: PropTypes.func.isRequired,
   setMapCenter: PropTypes.func.isRequired,
+  setPointList: PropTypes.func.isRequired,
   updatePoint: PropTypes.func.isRequired
 };
 
@@ -67,6 +71,7 @@ export default connect(
     addPoint,
     deletePoint,
     updatePoint,
+    setPointList,
     updateMapCenterByPointCoordinate,
     setMapCenter
   }

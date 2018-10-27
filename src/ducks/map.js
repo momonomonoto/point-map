@@ -12,6 +12,7 @@ export const DELETE_POINT = "DELETE_POINT";
 export const UPDATE_COORDINATE_POINT = "UPDATE_COORDINATE_POINT";
 export const UPDATE_MAP_CENTER = "UPDATE_MAP_CENTER";
 export const SET_MAP_CENTER = "SET_MAP_CENTER";
+export const SET_POINT_LIST = "SET_POINT_LIST";
 
 // reducer
 export default function reducer(state = initialState, action) {
@@ -47,6 +48,8 @@ export default function reducer(state = initialState, action) {
     case SET_MAP_CENTER:
       return { ...state, mapCenter: payload };
 
+    case SET_POINT_LIST:
+      return { ...state, pointList: payload };
     default:
       return state;
   }
@@ -77,4 +80,7 @@ export const updateMapCenterByPointCoordinate = function(payload) {
 
 export const setMapCenter = function(payload) {
   return { type: SET_MAP_CENTER, payload };
+};
+export const setPointList = function(payload) {
+  return { type: SET_POINT_LIST, payload };
 };

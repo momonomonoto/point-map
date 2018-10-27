@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import List from "../Base/List";
+import Item from "../Base/Item";
 import TextInput from "../Base/TextInput";
 import style from "./style.scss";
 
@@ -8,6 +9,7 @@ export default function PointList({
   pointList,
   addPoint,
   deletePoint,
+  setPointList,
   className,
   clickPoint
 }) {
@@ -21,6 +23,8 @@ export default function PointList({
       <List
         itemList={pointList}
         clickItem={clickPoint}
+        onDragItemEvent={setPointList}
+        itemWrapper={Item}
         deleteItemAction={deletePoint}
       />
     </div>
