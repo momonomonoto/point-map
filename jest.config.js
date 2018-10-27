@@ -5,7 +5,7 @@ module.exports = {
   testMatch: ['<rootDir>/**/*.test.js'],
   testPathIgnorePatterns: ['node_modules'],
   moduleNameMapper: {
-    '^.+\\.(css|less|scss)$': 'babel-jest'
+    '^.+\\.(css|less|scss|svg)$': 'babel-jest'
   },
   transform: {
     '^.+\\.jsx?$': 'babel-jest'
