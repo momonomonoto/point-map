@@ -10,6 +10,7 @@ import {
 
 const mockDeletePoint = jest.fn();
 const deleteItemAction = jest.fn();
+const mockDeleteValueFromList = jest.fn();
 const clickItem = jest.fn();
 const id = "id";
 const showDeleteIcon = true;
@@ -53,7 +54,8 @@ test("Call deleteItemFromList. And return button element if delete parametrs is 
     deleteItemAction,
     deleteText,
     id,
-    showDeleteIcon
+    showDeleteIcon,
+    mockDeleteValueFromList
   );
   mount(eventListValue);
 });
@@ -64,7 +66,8 @@ test("Call deleteItemFromList.And return null if id is invalid", () => {
     deleteItemAction,
     deleteText,
     ivalidId,
-    showDeleteIcon
+    showDeleteIcon,
+    mockDeleteValueFromList
   );
   expect(eventListValue).toBe(null);
 });
@@ -75,7 +78,19 @@ test("Call deleteItemFromList.And return null if deleteItemAction is invalid", (
     deleteItemAction,
     deleteText,
     id,
-    showDeleteIcon
+    showDeleteIcon,
+    mockDeleteValueFromList
+  );
+  expect(eventListValue).toBe(null);
+});
+test("Call deleteItemFromList.And return null if deleteValueFromList is invalid", () => {
+  const invalidDeleteValueFromList = null;
+  const eventListValue = deleteItemFromList(
+    deleteItemAction,
+    deleteText,
+    id,
+    showDeleteIcon,
+    invalidDeleteValueFromList
   );
   expect(eventListValue).toBe(null);
 });

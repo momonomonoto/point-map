@@ -41,13 +41,17 @@ export const deleteItemFromList = (
   showDeleteIcon,
   deleteValueFromList
 ) => {
-  const isValidDeleteParam = typeof deleteItemAction === "function" && id;
-  const elemLabel = showDeleteIcon ? "X" : deleteText;
-  const deleteProp = {
-    className: style.deleteButton,
-    onClick: deleteValueFromList(id, deleteItemAction)
-  };
+  const isValidDeleteParam =
+    typeof deleteItemAction === "function" &&
+    id &&
+    typeof deleteValueFromList === "function";
   if (isValidDeleteParam) {
+    const elemLabel = showDeleteIcon ? "X" : deleteText;
+    const deleteProp = {
+      className: style.deleteButton,
+      onClick: deleteValueFromList(id, deleteItemAction)
+    };
+
     return <button {...deleteProp}>{elemLabel}</button>;
   }
   return null;
