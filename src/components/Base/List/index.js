@@ -12,7 +12,7 @@ export const onSortEnd = (itemList, onDragItemEvent, arrayMove) => ({
   if (
     Array.isArray(itemList) &&
     typeof onDragItemEvent === "function" &&
-    typeof onDragItemEvent === "function"
+    typeof arrayMove === "function"
   ) {
     const newList = arrayMove(itemList, oldIndex, newIndex);
     return onDragItemEvent(newList);
@@ -20,33 +20,44 @@ export const onSortEnd = (itemList, onDragItemEvent, arrayMove) => ({
   return null;
 };
 
-export const getSortableItem = (itemWrapper, SortableElement) =>
-  SortableElement(({ ...itemProps }) => {
-    if (
-      typeof itemWrapper === "function" &&
-      typeof SortableElement === "function"
-    ) {
+export const getSortableItem = (itemWrapper, SortableElement) => {
+  if (
+    typeof itemWrapper === "function" &&
+    typeof SortableElement === "function"
+  ) {
+    return SortableElement(({ ...itemProps }) => {
       return itemWrapper({ ...itemProps });
-    }
-    return null;
-  });
+    });
+  }
+  return null;
+};
 
-export const getSortableList = (SortableItem, SortableContainer) =>
-  SortableContainer(({ items }) => {
-    if (typeof SortableItem === "function") {
-      return (
-        <ul className={style.containerList}>
-          {items.map(sortableItemProperty => {
-            return <SortableItem {...sortableItemProperty} />;
-          })}
-        </ul>
-      );
-    }
-    return null;
-  });
+export const getSortableList = (SortableItem, SortableContainer) => {
+  if (
+    typeof SortableItem === "function" &&
+    typeof SortableContainer === "function"
+  ) {
+    return SortableContainer(({ items }) => {
+      if (typeof SortableItem === "function") {
+        return (
+          <ul className={style.containerList}>
+            {items.map(sortableItemProperty => {
+              return <SortableItem {...sortableItemProperty} />;
+            })}
+          </ul>
+        );
+      }
+    });
+  }
+  return null;
+};
 
-export const generatePropertyList = (itemList, additionPropertyData = {}) => {
-  if (Array.isArray(itemList)) {
+export const generatePropertyList = (itemList, additionPropertyData) => {
+  const isAdditionPropertyDataIsObject =
+    additionPropertyData === Object(additionPropertyData) &&
+    Array.isArray(additionPropertyData) === false;
+
+  if (Array.isArray(itemList) && isAdditionPropertyDataIsObject) {
     const propertyList = itemList.map((item, index) => ({
       value: item.value,
       key: item.id,
@@ -97,6 +108,7 @@ export default function List({
 
 List.defaultProps = {
   itemList: [],
+  onDragItemEvent: null,
   itemWrapper: Item,
   clickItem: null,
   deleteItemAction: null,
@@ -109,7 +121,7 @@ List.propTypes = {
   itemList: PropTypes.array,
   itemWrapper: PropTypes.node,
   clickItem: PropTypes.func,
-  onDragItemEvent: PropTypes.func,
+  onDragItemEvent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   showDeleteIcon: PropTypes.bool,
   sortable: PropTypes.bool,
   deleteItemAction: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
