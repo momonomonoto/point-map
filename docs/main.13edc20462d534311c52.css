@@ -5,7 +5,12 @@
 .appBar--3H7Qo h1 {
   color: #ffffff;
   padding: 10px; }
-.panel--2CMgf, .deleteButton--hzUNP, .itemClass--2MteD {
+.containerList--NzGa- {
+  overflow-y: scroll;
+  height: 80vh;
+  min-width: 280px;
+  padding: 4px 4px 0 4px; }
+.panel--2hkKc, .deleteButton--2Uvq3, .valueElementContainer--3XTUm {
   background-color: #fff;
   border-color: transparent;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.15), 0 2px 5px -3px rgba(0, 0, 0, 0.15);
@@ -15,28 +20,38 @@
   border-radius: 3px;
   outline: none; }
 
-.deleteButton--hzUNP {
+.deleteButton--2Uvq3 {
   padding: 0 12px;
   height: 28px;
   margin: 0 0 0 10px;
   cursor: pointer; }
 
-.itemClass--2MteD {
+.valueElementContainer--3XTUm {
   padding: 8px;
   cursor: pointer;
   word-wrap: break-word;
   min-width: 240px; }
 
-.itemContainer--2p7m8 {
+.itemContainer--3dsUr {
   display: -ms-flexbox;
   display: flex;
   margin: 0 10px 10px 0; }
 
-.containerList--NzGa- {
-  overflow-y: scroll;
-  height: 80vh;
-  min-width: 280px;
-  padding: 4px 4px 0 4px; }
+.itemClass--1KHBk {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.geo--3ZZX- {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer; }
+
+.elemValue--3xJwJ {
+  width: 200px;
+  margin: 0 2px 0 0; }
 .validationError--f7Dm- {
   color: red;
   min-width: 159px;
@@ -90,4 +105,4 @@ body {
     .pointListContainer--AFKRj {
       padding: 8px; } }
 
-/*# sourceMappingURL=main.43d92980d13491b7f9fa.css.map*/
+/*# sourceMappingURL=main.13edc20462d534311c52.css.map*/
