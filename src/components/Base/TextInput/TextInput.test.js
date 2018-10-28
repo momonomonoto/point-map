@@ -15,26 +15,28 @@ const mockProps = {
 const formComponent = mount(<TextInput {...mockProps} />);
 const input = formComponent.find("input");
 
-test("Render component form", () => {
-  mount(<TextInput {...mockProps} />);
-});
+describe("Base map test", () => {
+  test("Render component form", () => {
+    mount(<TextInput {...mockProps} />);
+  });
 
-test("Update state from input value", () => {
-  input.simulate("change", { target: { value } });
-  expect(formComponent.state().itemValue).toEqual(value);
-});
+  test("Update state from input value", () => {
+    input.simulate("change", { target: { value } });
+    expect(formComponent.state().itemValue).toEqual(value);
+  });
 
-test("Show validation error", () => {
-  formComponent.setState({ validationError: true });
-  const formContainError = formComponent.contains(
-    <div id="validationError">Заполните поле</div>
-  );
-  expect(formContainError).toEqual(true);
-});
+  test("Show validation error", () => {
+    formComponent.setState({ validationError: true });
+    const formContainError = formComponent.contains(
+      <div id="validationError">Заполните поле</div>
+    );
+    expect(formContainError).toEqual(true);
+  });
 
-test("Add new value in state", () => {
-  input.simulate("change", { target: { value } });
-  input.simulate("keyPress", { key: "Enter" });
-  const calledAddFunction = addValue.called;
-  expect(calledAddFunction).toEqual(true);
+  test("Add new value in state", () => {
+    input.simulate("change", { target: { value } });
+    input.simulate("keyPress", { key: "Enter" });
+    const calledAddFunction = addValue.called;
+    expect(calledAddFunction).toEqual(true);
+  });
 });

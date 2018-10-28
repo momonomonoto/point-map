@@ -47,103 +47,105 @@ const mockProps = {
   pointList
 };
 
-test("Mount component Map", () => {
-  const listComponent = <Map {...mockProps} />;
-  mount(listComponent);
-});
+describe("Base map test", () => {
+  test("Mount component Map", () => {
+    const listComponent = <Map {...mockProps} />;
+    mount(listComponent);
+  });
 
-test("Call event function for change coordinate", () => {
-  const callEventToChange = changeCoordinate(id, updatePoint);
-  callEventToChange(mockEvent);
-  expect(updatePoint).toBeCalled();
-});
+  test("Call event function for change coordinate", () => {
+    const callEventToChange = changeCoordinate(id, updatePoint);
+    callEventToChange(mockEvent);
+    expect(updatePoint).toBeCalled();
+  });
 
-test("Call event function change withoud id", () => {
-  const invalidId = null;
-  const callEventToChange = changeCoordinate(invalidId, updatePoint);
-  const resultChangeEvent = callEventToChange(mockEvent);
-  expect(resultChangeEvent).toBe(null);
-});
+  test("Call event function change withoud id", () => {
+    const invalidId = null;
+    const callEventToChange = changeCoordinate(invalidId, updatePoint);
+    const resultChangeEvent = callEventToChange(mockEvent);
+    expect(resultChangeEvent).toBe(null);
+  });
 
-test("Call event function change without function updatePoint", () => {
-  const invalidUpdatePoint = null;
-  const callEventToChange = changeCoordinate(id, invalidUpdatePoint);
-  const resultChangeEvent = callEventToChange(mockEvent);
-  expect(resultChangeEvent).toBe(null);
-});
+  test("Call event function change without function updatePoint", () => {
+    const invalidUpdatePoint = null;
+    const callEventToChange = changeCoordinate(id, invalidUpdatePoint);
+    const resultChangeEvent = callEventToChange(mockEvent);
+    expect(resultChangeEvent).toBe(null);
+  });
 
-test("Call getCoordinateList", () => {
-  const coordList = getCoordinateList(pointList);
-  expect(initialCoordinateList).toEqual(coordList);
-});
+  test("Call getCoordinateList", () => {
+    const coordList = getCoordinateList(pointList);
+    expect(initialCoordinateList).toEqual(coordList);
+  });
 
-test("Call getCoordinateList without correct list", () => {
-  const coordList = getCoordinateList(null);
-  expect(null).toEqual(coordList);
-});
+  test("Call getCoordinateList without correct list", () => {
+    const coordList = getCoordinateList(null);
+    expect(null).toEqual(coordList);
+  });
 
-test("Call displayPolyline", () => {
-  const polylineElement = displayPolyline(showPolyline, pointList);
-  shallow(polylineElement);
-});
+  test("Call displayPolyline", () => {
+    const polylineElement = displayPolyline(showPolyline, pointList);
+    shallow(polylineElement);
+  });
 
-test("Call displayPolyline when showPolyline is false", () => {
-  const isShowPolylineHide = false;
-  const polylineElement = displayPolyline(isShowPolylineHide, pointList);
-  expect(polylineElement).toEqual(null);
-});
+  test("Call displayPolyline when showPolyline is false", () => {
+    const isShowPolylineHide = false;
+    const polylineElement = displayPolyline(isShowPolylineHide, pointList);
+    expect(polylineElement).toEqual(null);
+  });
 
-test("Call displayPolyline when pointList is false", () => {
-  const invalidPointList = null;
-  const polylineElement = displayPolyline(showPolyline, invalidPointList);
-  expect(polylineElement).toEqual(null);
-});
+  test("Call displayPolyline when pointList is false", () => {
+    const invalidPointList = null;
+    const polylineElement = displayPolyline(showPolyline, invalidPointList);
+    expect(polylineElement).toEqual(null);
+  });
 
-test("Call displayPlaceMarkList", () => {
-  const placemarkElement = displayPlaceMarkList(
-    pointList,
-    changeCoordinate,
-    updatePoint
-  );
-  shallow(placemarkElement[0]);
-});
+  test("Call displayPlaceMarkList", () => {
+    const placemarkElement = displayPlaceMarkList(
+      pointList,
+      changeCoordinate,
+      updatePoint
+    );
+    shallow(placemarkElement[0]);
+  });
 
-test("Call displayPolyline with invalid pointList", () => {
-  const invalidPointList = null;
-  const placemarkElement = displayPlaceMarkList(
-    invalidPointList,
-    changeCoordinate,
-    updatePoint
-  );
-  expect(placemarkElement).toEqual(null);
-});
+  test("Call displayPolyline with invalid pointList", () => {
+    const invalidPointList = null;
+    const placemarkElement = displayPlaceMarkList(
+      invalidPointList,
+      changeCoordinate,
+      updatePoint
+    );
+    expect(placemarkElement).toEqual(null);
+  });
 
-test("Call displayPolyline with invalid updatePoint", () => {
-  const invalidUpdatePoint = null;
-  const placemarkElement = displayPlaceMarkList(
-    pointList,
-    changeCoordinate,
-    invalidUpdatePoint
-  );
-  expect(placemarkElement).toEqual(null);
-});
+  test("Call displayPolyline with invalid updatePoint", () => {
+    const invalidUpdatePoint = null;
+    const placemarkElement = displayPlaceMarkList(
+      pointList,
+      changeCoordinate,
+      invalidUpdatePoint
+    );
+    expect(placemarkElement).toEqual(null);
+  });
 
-test("Call displayPolyline with invalid changeCoordinate", () => {
-  const ivalidChangeCoordinate = null;
-  const placemarkElement = displayPlaceMarkList(
-    pointList,
-    ivalidChangeCoordinate,
-    updatePoint
-  );
-  expect(placemarkElement).toEqual(null);
-});
+  test("Call displayPolyline with invalid changeCoordinate", () => {
+    const ivalidChangeCoordinate = null;
+    const placemarkElement = displayPlaceMarkList(
+      pointList,
+      ivalidChangeCoordinate,
+      updatePoint
+    );
+    expect(placemarkElement).toEqual(null);
+  });
 
-test("Call createMapState", () => {
-  const mapCenter = createMapState(MAP_CENTER);
-  expect(mapCenter).toEqual(defaultMapCenter);
-});
+  test("Call createMapState", () => {
+    const mapCenter = createMapState(MAP_CENTER);
+    expect(mapCenter).toEqual(defaultMapCenter);
+  });
 
-test("Call createMapState with invalid mapCenter", () => {
-  const mapCenter = createMapState(null);
-  expect(mapCenter).toEqual(null);
+  test("Call createMapState with invalid mapCenter", () => {
+    const mapCenter = createMapState(null);
+    expect(mapCenter).toEqual(null);
+  });
 });
