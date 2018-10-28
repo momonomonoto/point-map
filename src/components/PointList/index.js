@@ -36,6 +36,7 @@ PointList.propTypes = {
   pointList: PropTypes.array.isRequired,
   className: PropTypes.string.isRequired,
   deletePoint: PropTypes.func.isRequired,
+  setPointList: PropTypes.func.isRequired,
   clickPoint: PropTypes.func,
   addPoint: PropTypes.func.isRequired
 };
