@@ -31,7 +31,7 @@ const mockProps = {
   deleteText: "Удалить"
 };
 
-describe("Base list test", () => {
+describe("Base List component", () => {
   test("Mount component List", () => {
     const listComponent = <List {...mockProps} />;
     mount(listComponent);

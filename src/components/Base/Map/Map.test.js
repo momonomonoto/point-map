@@ -47,7 +47,7 @@ const mockProps = {
   pointList
 };
 
-describe("Base map test", () => {
+describe("Base Map component", () => {
   test("Mount component Map", () => {
     const listComponent = <Map {...mockProps} />;
     mount(listComponent);

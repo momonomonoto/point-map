@@ -15,7 +15,7 @@ const mockProps = {
 const formComponent = mount(<TextInput {...mockProps} />);
 const input = formComponent.find("input");
 
-describe("Base map test", () => {
+describe("Base TextInput component", () => {
   test("Render component form", () => {
     mount(<TextInput {...mockProps} />);
   });

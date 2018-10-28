@@ -24,63 +24,65 @@ const pointWithCoordinate = {
   coordinate: [55.76, 37.64]
 };
 
-test("Return the default state", () => {
-  const action = {};
-  expect(reducer(initialState, action)).toEqual(initialState);
-});
+describe("Map reducer", () => {
+  test("Return the default state", () => {
+    const action = {};
+    expect(reducer(initialState, action)).toEqual(initialState);
+  });
 
-test("Add point to state", () => {
-  const point = { id: "id", value: "value" };
-  const action = { type: ADD_POINT, payload: point };
-  const state = reducer(initialState, action);
+  test("Add point to state", () => {
+    const point = { id: "id", value: "value" };
+    const action = { type: ADD_POINT, payload: point };
+    const state = reducer(initialState, action);
 
-  expect(state.pointList).toEqual([pointWithCoordinate]);
-});
+    expect(state.pointList).toEqual([pointWithCoordinate]);
+  });
 
-test("Delete point from state", () => {
-  const actionDelete = { type: DELETE_POINT, payload: "id" };
-  const changedState = reducer(stateWithPoint, actionDelete);
+  test("Delete point from state", () => {
+    const actionDelete = { type: DELETE_POINT, payload: "id" };
+    const changedState = reducer(stateWithPoint, actionDelete);
 
-  expect(changedState.pointList).toEqual([]);
-});
+    expect(changedState.pointList).toEqual([]);
+  });
 
-test("Update point from state", () => {
-  const actionUpdate = {
-    type: UPDATE_COORDINATE_POINT,
-    payload: { id: "id", coordinate: newPointCoordinate }
-  };
-  const changedState = reducer(stateWithPoint, actionUpdate);
+  test("Update point from state", () => {
+    const actionUpdate = {
+      type: UPDATE_COORDINATE_POINT,
+      payload: { id: "id", coordinate: newPointCoordinate }
+    };
+    const changedState = reducer(stateWithPoint, actionUpdate);
 
-  expect(changedState.pointList[0].coordinate).toEqual(newPointCoordinate);
-});
+    expect(changedState.pointList[0].coordinate).toEqual(newPointCoordinate);
+  });
 
-test("Update map center from point", () => {
-  const actionUpdateMapCenter = { type: UPDATE_MAP_CENTER, payload: "id" };
-  const changedState = reducer(stateWithPoint, actionUpdateMapCenter);
+  test("Update map center from point", () => {
+    const actionUpdateMapCenter = { type: UPDATE_MAP_CENTER, payload: "id" };
+    const changedState = reducer(stateWithPoint, actionUpdateMapCenter);
 
-  expect(changedState.mapCenter).toEqual(newPointCoordinate);
-});
+    expect(changedState.mapCenter).toEqual(newPointCoordinate);
+  });
 
-test("Set map center", () => {
-  const actionSetNewMapCenter = {
-    type: SET_MAP_CENTER,
-    payload: newPointCoordinate
-  };
-  const stateWithChangedMapCenter = reducer(
-    initialState,
-    actionSetNewMapCenter
-  );
-  expect(stateWithChangedMapCenter.mapCenter).toEqual(newPointCoordinate);
-});
+  test("Set map center", () => {
+    const actionSetNewMapCenter = {
+      type: SET_MAP_CENTER,
+      payload: newPointCoordinate
+    };
+    const stateWithChangedMapCenter = reducer(
+      initialState,
+      actionSetNewMapCenter
+    );
+    expect(stateWithChangedMapCenter.mapCenter).toEqual(newPointCoordinate);
+  });
 
-test("Set pointList", () => {
-  const actionSetNewPointList = {
-    type: SET_POINT_LIST,
-    payload: stateWithPoint
-  };
-  const stateWithChangedMapCenter = reducer(
-    initialState,
-    actionSetNewPointList
-  );
-  expect(stateWithChangedMapCenter.pointList).toEqual(stateWithPoint);
+  test("Set pointList", () => {
+    const actionSetNewPointList = {
+      type: SET_POINT_LIST,
+      payload: stateWithPoint
+    };
+    const stateWithChangedMapCenter = reducer(
+      initialState,
+      actionSetNewPointList
+    );
+    expect(stateWithChangedMapCenter.pointList).toEqual(stateWithPoint);
+  });
 });

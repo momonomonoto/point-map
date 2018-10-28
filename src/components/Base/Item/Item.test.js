@@ -32,7 +32,7 @@ const mockProps = {
   ]
 };
 
-describe("Base item test", () => {
+describe("Base Item component", () => {
   test("Mount component Item", () => {
     const listComponent = <Item {...mockProps} />;
     mount(listComponent);
