@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import style from "../List/style.scss";
+import style from "./style.scss";
 import getPoint from "./getPoint.svg";
 
 export const handleItemList = (clickItem, id) => () => {
@@ -14,10 +14,10 @@ export function setValueFromList(className, value, handleClickItem) {
   if (typeof value === "string" || typeof value === "number") {
     return (
       <div role="note" className={className}>
-        <div>{value}</div>
+        <div className={style.elemValue}>{value}</div>
         <input
           onClick={handleClickItem}
-          className={style.baseLine}
+          className={style.geo}
           type="image"
           src={getPoint}
         />

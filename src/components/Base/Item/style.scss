@@ -1,0 +1,48 @@
+.panel {
+  background-color: #fff;
+  border-color: transparent;
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,.15), 0 2px 5px -3px rgba(0,0,0,.15);
+  box-sizing: border-box!important;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  outline: none;
+
+}
+.deleteButton {
+  padding: 0 12px;
+  @extend .panel;
+  height: 28px;
+  margin:0 0 0 10px;
+  cursor: pointer;
+}
+
+.valueElementContainer {
+  padding: 8px;
+  cursor: pointer;
+  @extend .panel;
+  word-wrap: break-word;
+  min-width: 240px;
+}
+
+.itemContainer {
+  display: flex;
+  margin: 0 10px 10px 0;
+}
+
+.itemClass {
+  display: flex;
+  justify-content: space-between;
+}
+
+.geo {
+  border: none;
+  background:none;
+  outline:none;
+  cursor:pointer;
+}
+
+.elemValue {
+  width: 200px;
+  margin: 0 2px 0 0 ;
+}
